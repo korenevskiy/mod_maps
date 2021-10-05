@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="2.5" method="upgrade" client="site">
+	<name>Модуль вывода карты с метками -  API 2.1</name>
+	<author>Rjh and Korenevskiy S</author>
+	<creationDate>October 2021</creationDate>
+	<modificationDate>2021-10-01</modificationDate>
+	<version>4</version>
+	<description>
+  	<![CDATA[
+  	Модуль вывода Яндекс карт с вашими метками. Помощь в создании скриптов на основе API Яндекс карт -> <a href='mailto:korenevskiys@ya.ru'>korenevskiys@ya</a>
+	]]>
+  </description>
+  
+   <files>
+    <filename module="mod_maps">mod_maps.php</filename>
+    <filename module="mod_maps">mod_maps.xml</filename>	
+    <filename module="mod_maps">index.html</filename>
+    <filename module="mod_maps">tmpl/default.php</filename>
+    <folder module="mod_maps">tmpl</folder>
+    <folder module="mod_maps">images</folder>
+    <folder module="mod_maps">libs</folder>
+  </files>
+   
+  <config>
+
+<fields name="params"  addfieldpath="modules/mod_maps/libs/elements">
+	<fieldset name="basic">
+    <field type="spacer" default="CUSTOM_SLIDER_CLASS_SETTING" />
+
+		
+    <field name="cache" type="radio" default="0" label="Кешировать" description="Кешировать ?">
+			<option value="0">Нет</option>
+			<option value="1">Да</option>
+		</field>
+		<field name="moduleclass_sfx" type="text" default=" full-width " label="Суффикс класса модуля" description="Суффикс класса модуля" />
+		<field name="centermap" size="70" type="text" default="55.75399400, 37.62209300" label="Центр карты" description="Определите цент карты - например Москва (55.75399400, 37.62209300)" />
+	<field name="scrope_bool" type="radio" default="1" label="Кнопка изменения масштаба" description="Кнопка изменения масштаба нужна ?">
+			<option value="0">Нет</option>
+			<option value="1">Да</option>
+		</field>
+	 <field name="scope" type="list" default="15" label="Масштаб карты" description="Укажите масштаб карты от 0 до 17">
+			<option value="0">0</option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+			<option value="6">6</option>
+			<option value="7">7</option>
+			<option value="7">8</option>
+			<option value="9">9</option>
+			<option value="10">10</option>
+			<option value="11">11</option>
+			<option value="12">12</option>
+			<option value="13">13</option>
+			<option value="14">14</option>
+			<option value="15">15</option>
+			<option value="16">16</option>
+			<option value="17">17</option>
+		</field>
+
+
+
+
+			<field name="typemap_bool" type="radio" default="1" label="Список типов карты" description="Список типов карты (Народная, спутник) ?">
+			<option value="0">Нет</option>
+			<option value="1">Да</option>
+		</field>
+	   <field name="bottom_bool" type="radio" default="1" label="Поиск по карте" description="Поиск по карте ?">
+			<option value="0">Нет</option>
+			<option value="1">Да</option>
+		</field>
+	   <field name="trafficControl" type="radio" default="0" label="Пробки" description="Показать пробки ?">
+			<option value="0">Нет</option>
+			<option value="1">Да</option>
+		</field>
+    
+	   <field name="scaling" type="radio" default="1" label="Прокрутка мышью" description="При  прокрутке колесом мыши масштабирование отключено.">
+			<option value="0">Нет</option>
+			<option value="1">Да</option>
+		</field>
+			
+		<field name="wi"  type="text" default="100%" label="Ширина карты" description="Укажите  ширину карты на сайте. Допускается размер в процентах и пикселях." />
+		<field name="he"  type="text" default="40vh" label="Высота карты" description="Укажите  высоту карты на сайте. Допускается размер в процентах и пикселях." />	
+
+<field name="iconmap" type="media" default="modules/mod_maps/images/myIcon.png" directory="story" hide_none="1" label="Ваша иконка на карте" size="40" description="Общая Иконка" />
+			   
+		<field name="list_templates"
+			type="Repeatable"
+			icon="list"
+			description="Поставь точки на карте"
+			label="Поставь точки на карте"
+			filter="raw"
+            default="{&#34;template&#34;:[&#34;55.75399400, 37.62209300&#34;],&#34;point&#34;:[&#34;&#34;],&#34;description&#34;:[&#34;Описание - можно использовать HTML &#34;]}">
+			<fields name="params">
+
+			<fieldset hidden="true" name="list_templates_modal" repeat="true">
+				<field name="template"
+					label="Координаты метки"
+					size="30"
+					type="text" />
+
+				    <field name="point"
+				    type="imagelist"
+					directory="images"
+					label="Иконка"
+					size="30"
+				 />
+
+				<field name="description"
+					label="Описнание метки"
+					size="60"
+					type="textarea" 
+					filter="raw" />
+			</fieldset>
+
+			</fields>
+		</field>
+		    <field type="sfsimplecode2" />
+			    <field type="sfsimplecode" />
+	  </fieldset>
+	  
+	  <fieldset name="advanced" label="Расширенные настройки" >
+	           
+
+
+                <field name="icon_wi" default="58" type="text" label="Размер иконки (ширина)" description="Можно выставить размер вашей картинки - ширина px" />
+				
+                <field name="icon_he" default="55" type="text" label="Размер иконки (высота)" description="Можно выставить размер вашей картинки - высота px" />
+	           
+			   <field name="zn1" default="-28"  type="text" label="Смещение левого верхнего угла иконки по горизонтали" description="Смещение левого верхнего угла иконки относительно её 'ножки' (точки привязки) по горизонтали (возможны отрицательные значения)" />
+			   <field name="zn2" default="-48" type="text" label="Смещение левого верхнего угла иконки по вертикали" description="Смещение левого верхнего угла иконки относительно её 'ножки' (точки привязки)  по вертикали (возможны отрицательные значения)" />
+	   </fieldset>
+	   	  
+	  <fieldset name="template" label="Шаблон" >
+       <field name="layout" type="modulelayout" label="Выбрать шаблон" description="Выбор" />
+	  	   </fieldset>
+</fields>
+  </config>
+</extension>
