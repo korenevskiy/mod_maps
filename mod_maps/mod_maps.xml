@@ -37,6 +37,9 @@
 			<option value="1">Да</option>
 		</field>
 		<field name="moduleclass_sfx" type="text" default=" full-width " label="Суффикс класса модуля" description="Суффикс класса модуля" />
+		<field name="header_class" type="text" label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL" description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC"
+                                        default="  grid-child  "
+				/>
 		<field name="centermap" size="70" type="text" default="55.75399400, 37.62209300" label="Центр карты" description="Определите цент карты - например Москва (55.75399400, 37.62209300)" />
 	<field name="scrope_bool" type="radio" default="1" label="Кнопка изменения масштаба" description="Кнопка изменения масштаба нужна ?">
 			<option value="0">Нет</option>
