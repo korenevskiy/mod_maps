@@ -21,9 +21,9 @@
     <folder module="mod_maps">libs</folder>
   </files>
            <updateservers> 
-            <server type="extension" name="mod_multi" priority="1">https://korenevskiy.github.io/mod_maps/mod_maps_update.xml</server>
-            <server type="extension" name="mod_multi" priority="1">https://explorer-office.ru/modules/mod_maps_update.xml</server>
-            <server type="extension" name="mod_multi" priority="2">https://raw.githubusercontent.com/korenevskiy/mod_maps/master/mod_maps_update.xml</server>
+            <server type="extension" name="mod_maps" priority="1">https://korenevskiy.github.io/mod_maps/mod_maps_update.xml</server>
+            <server type="extension" name="mod_maps" priority="1">https://explorer-office.ru/modules/mod_maps_update.xml</server>
+            <server type="extension" name="mod_maps" priority="2">https://raw.githubusercontent.com/korenevskiy/mod_maps/master/mod_maps_update.xml</server>
          </updateservers>
   <config>
 
