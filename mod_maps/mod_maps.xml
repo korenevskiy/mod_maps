@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<extension type="module" version="2.5" method="upgrade" client="site">
+<extension type="module" version="4.0" method="upgrade" client="site">
 	<name>Модуль вывода карты с метками -  API 2.1</name>
 	<author>Rjh and Korenevskiy S</author>
 	<creationDate>October 2021</creationDate>
@@ -20,7 +20,11 @@
     <folder module="mod_maps">images</folder>
     <folder module="mod_maps">libs</folder>
   </files>
-   
+           <updateservers> 
+            <server type="extension" name="mod_multi" priority="1">https://korenevskiy.github.io/mod_map/mod_map_update.xml</server>
+            <server type="extension" name="mod_multi" priority="1">https://explorer-office.ru/modules/mod_map_update.xml</server>
+            <server type="extension" name="mod_multi" priority="2">https://raw.githubusercontent.com/korenevskiy/mod_map/master/mod_map_update.xml</server>
+         </updateservers>
   <config>
 
 <fields name="params"  addfieldpath="modules/mod_maps/libs/elements">
